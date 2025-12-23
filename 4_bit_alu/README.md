@@ -1,16 +1,25 @@
-🔷 4-Bit Arithmetic Logic Unit (ALU) – Verilog HDL
-🧾 Project Overview
+4-BIT ARITHMETIC LOGIC UNIT (ALU) – VERILOG HDL
+1. INTRODUCTION
 
-This project implements a fully modular 4-bit Arithmetic Logic Unit (ALU) using Verilog HDL.
-The ALU is capable of performing a wide range of arithmetic, logical, and bit-rotation operations.
+This project presents the design and implementation of a 4-bit Arithmetic Logic Unit (ALU) using Verilog HDL.
+The ALU is a fundamental component of digital processors and is responsible for performing arithmetic and logical operations.
 
-Each operation is designed as an independent Verilog module, making the system easy to understand, debug, and extend.
-All modules are integrated into a top-level module (alu_top.v), which selects the required operation based on an opcode.
+This design follows a fully modular approach, where each operation is implemented as a separate Verilog module for clarity, scalability, and ease of testing.
 
-The design is verified using a dedicated testbench and simulated in Xilinx Vivado.
+2. PROJECT OBJECTIVE
 
-⚙️ Supported Operations
-🔢 Arithmetic Operations
+The main objectives of this project are:
+
+To design a modular 4-bit ALU using Verilog HDL
+
+To implement arithmetic, logical, and rotational operations
+
+To integrate all modules using a top-level control module
+
+To verify the functionality using a testbench and simulation
+
+3. FEATURES & OPERATIONS
+3.1 Arithmetic Operations
 
 Addition
 
@@ -22,7 +31,7 @@ Division
 
 Modulo
 
-🔣 Logical Operations
+3.2 Logical Operations
 
 AND
 
@@ -32,41 +41,49 @@ XOR
 
 NOT
 
-🔄 Bitwise Rotation Operations
+3.3 Rotational Operations
 
 Left Rotation
 
 Right Rotation
 
-🧩 Modular Design Architecture
+4. DESIGN METHODOLOGY
 
-Each ALU function is implemented as a separate Verilog module to ensure modularity and reusability.
+The ALU is designed using a hierarchical and modular structure:
 
+Each operation is implemented as an independent Verilog module
+
+A top-level module selects the operation based on an opcode
+
+The design ensures reusability and easy debugging
+
+5. PROJECT STRUCTURE
 4_bit_alu/
-├── alu_top.v        # Top-level module (opcode-based selection)
-├── adder.v          # Addition module
-├── subtractor.v     # Subtraction module
-├── multiplier.v     # Multiplication module
-├── divider.v        # Division module
-├── modulo.v         # Modulo operation
-├── logic_unit.v     # AND, OR, XOR, NOT
-├── rotate_left.v    # Left rotation
-├── rotate_right.v   # Right rotation
-├── alu_tb.v         # Testbench
-├── README.md        # Documentation
+│
+├── alu_top.v        → Top-level ALU module
+├── adder.v          → Addition module
+├── subtractor.v     → Subtraction module
+├── multiplier.v     → Multiplication module
+├── divider.v        → Division module
+├── modulo.v         → Modulo module
+├── logic_unit.v     → AND, OR, XOR, NOT operations
+├── rotate_left.v    → Left rotation
+├── rotate_right.v   → Right rotation
+├── alu_tb.v         → Testbench
+├── README.md        → Documentation
 └── LICENSE
 
-🧠 Top-Level Module (alu_top.v)
+6. TOP-LEVEL MODULE DESCRIPTION (alu_top.v)
 
-The alu_top.v file acts as the control unit of the ALU.
+The alu_top.v module acts as the control and integration unit of the ALU.
 
-Accepts two 4-bit inputs (A and B)
+Accepts two 4-bit inputs (A, B)
 
-Uses an opcode to select the operation
+Uses an opcode to select the desired operation
 
-Outputs the computed result
+Outputs the corresponding result
 
-📟 Opcode Mapping (Example)
+Opcode Selection Table
 Opcode	Operation
 0000	Addition
 0001	Subtraction
@@ -79,42 +96,32 @@ Opcode	Operation
 1000	NOT
 1001	Left Rotation
 1010	Right Rotation
-🧪 Testbench & Verification
+7. TESTBENCH & VERIFICATION
 
 Testbench File: alu_tb.v
 
-Applies multiple test vectors for all operations
+Applies multiple input combinations and opcodes
 
-Verifies correctness of outputs for each opcode
+Verifies correctness of each ALU operation
 
-Simulated using Xilinx Vivado
+Simulation performed using Xilinx Vivado
 
-🛠 Tools & Technologies
+8. TOOLS & TECHNOLOGIES USED
 
 Hardware Description Language: Verilog HDL
 
 Simulation Tool: Xilinx Vivado
 
-🚀 How to Run the Project
+9. RESULTS
 
-Open Xilinx Vivado
+The simulation results confirm that the ALU performs all arithmetic, logical, and rotational operations correctly according to the selected opcode.
 
-Create a new RTL project
-
-Add all .v source files
-
-Set alu_top.v as the top module
-
-Add alu_tb.v as the simulation source
-
-Run Behavioral Simulation
-
-📈 Future Enhancements
+10. FUTURE ENHANCEMENTS
 
 Extend ALU to 8-bit / 16-bit
 
 Add shift operations
 
-Include status flags (Carry, Zero, Overflow)
+Introduce status flags (Carry, Zero, Overflow)
 
 FPGA implementation
